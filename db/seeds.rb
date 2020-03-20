@@ -14,13 +14,11 @@ puts "Obliterating hotel heaven"
 # Booking.destroy_all
 # Room.destroy_all
 # Room_category.destroy_all
-# Worker.destroy_all
+Worker.destroy_all
 User.destroy_all
 Hotel.destroy_all
 
 puts "everything was destroyed succesfully"
-
-
 
 puts "creating amazing hotels"
 
@@ -40,6 +38,65 @@ antoniotheking = Hotel.create!(
 )
 
 puts "hotels done"
+
+puts "creating room categories"
+
+vip = RoomCategory.create!(
+  category: "VIP",
+  price: 5000
+)
+
+single = RoomCategory.create!(
+  category: "SINGLE",
+  price: 2000
+)
+
+double = RoomCategory.create!(
+  category: "DOUBLE",
+  price: 3000
+)
+
+puts "room categories done"
+
+puts "creating rooms"
+
+one = Room.create!(
+  number: 1,
+  room_category: vip,
+  hotel: nataliathechampion
+)
+
+one = Room.create!(
+  number: 1,
+  room_category: single,
+  hotel: nataliathechampion
+)
+
+one = Room.create!(
+  number: 1,
+  room_category: double,
+  hotel: nataliathechampion
+)
+
+one = Room.create!(
+  number: 1,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+one = Room.create!(
+  number: 1,
+  room_category: single,
+  hotel: antoniotheking
+)
+
+one = Room.create!(
+  number: 1,
+  room_category: double,
+  hotel: antoniotheking
+)
+
+puts "rooms done"
 
 puts "creating workers"
 
