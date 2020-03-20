@@ -15,12 +15,14 @@ puts "Obliterating hotel heaven"
 # Room.destroy_all
 # Room_category.destroy_all
 # Worker.destroy_all
-Hotel.destroy_all
 User.destroy_all
+Hotel.destroy_all
 
 puts "everything was destroyed succesfully"
-puts "creating amazing hotels"
 
+
+
+puts "creating amazing hotels"
 
 nataliathechampion = Hotel.create!(
   name: "Nataliathechampion",
@@ -38,6 +40,34 @@ antoniotheking = Hotel.create!(
 )
 
 puts "hotels done"
+
+puts "creating workers"
+
+naomi = Worker.create!(
+  first_name: "Naomi",
+  last_name: "Takahara",
+  hotel: nataliathechampion
+)
+
+isidoro = Worker.create!(
+  first_name: "Isidoro",
+  last_name: "Trespalacios",
+  hotel: nataliathechampion
+)
+
+maria = Worker.create!(
+  first_name: "Maria",
+  last_name: "Santos",
+  hotel: antoniotheking
+)
+
+felipe = Worker.create!(
+  first_name: "Felipe",
+  last_name: "Caradura",
+  hotel: antoniotheking
+)
+
+puts "workers finished"
 
 puts "creating Users"
 
