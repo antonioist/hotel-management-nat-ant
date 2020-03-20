@@ -5,15 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "Obliterating hotel heaven"
-# Booking_item.destroy_all
-# Booking_amenity.destroy_all
-# Amenity.destroy_all
-# Menu_item.destroy_all
+puts "Obliterating starlight hotel "
+# BookingItem.destroy_all
+# BookingAmenity.destroy_all
+Amenity.destroy_all
+MenuItem.destroy_all
 # Client.destroy_all
 # Booking.destroy_all
-# Room.destroy_all
-# Room_category.destroy_all
+Room.destroy_all
+RoomCategory.destroy_all
 Worker.destroy_all
 User.destroy_all
 Hotel.destroy_all
@@ -97,6 +97,51 @@ one = Room.create!(
 )
 
 puts "rooms done"
+
+puts "creating amenities"
+
+caipirinha = Amenity.create!(
+  drink: "Caipirinha"
+)
+
+cubalibre = Amenity.create!(
+  drink: "Cubalibre"
+)
+
+piscosour = Amenity.create!(
+  drink: "Piscosour"
+)
+
+puts "amenities done"
+
+puts "creating menu items"
+
+coke = MenuItem.create!(
+  name: "coke",
+  price: 500,
+  category: "DRINK"
+)
+
+tea = MenuItem.create!(
+  name: "tea",
+  price: 600,
+  category: "DRINK"
+)
+
+french_fries = MenuItem.create!(
+  name: "french fries",
+  price: 1000,
+  category: "FOOD"
+)
+
+caesar_salad = MenuItem.create!(
+  name: "caesar_salad",
+  price: 200,
+  category: "FOOD"
+)
+
+puts "menu items done"
+
 
 puts "creating workers"
 
