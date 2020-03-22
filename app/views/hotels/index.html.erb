@@ -1,0 +1,6 @@
+<h1>hotels</h1>
+<% @hotels.each do |hotel| %>
+  <%= link_to hotel_path(hotel)  do %>
+    <p><%= hotel.name %> </p>
+  <% end %>
+<% end %>
