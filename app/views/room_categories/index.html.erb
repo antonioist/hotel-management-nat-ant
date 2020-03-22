@@ -1,0 +1,6 @@
+<h1>room categories</h1>
+<% @room_categories.each do |room_category| %>
+  <%= link_to room_category_rooms_path(room_category) do %>
+    <p> <%= room_category.category %> </p>
+  <% end %>
+<% end %>
