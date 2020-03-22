@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h1>menu items</h1>
+      <h2>Food menu</h2>
+      <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == 'FOOD' %>
+          <li><%= menu_item.name %></li>
+          <li>$<%= menu_item.price %></li>
+        <% end %>
+      <% end %>
+      <div class="col-6">
+      <h2>Drink menu</h2>
+      <% @menu_items.each do |menu_item| %>
+        <% if menu_item.category == 'DRINK' %>
+          <li><%= menu_item.name %></li>
+          <li>$<%= menu_item.price %></li>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
