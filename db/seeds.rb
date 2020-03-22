@@ -60,39 +60,57 @@ puts "room categories done"
 
 puts "creating rooms"
 
-one = Room.create!(
+onev = Room.create!(
   number: 1,
   room_category: vip,
   hotel: nataliathechampion
 )
 
-one = Room.create!(
+ones = Room.create!(
   number: 1,
   room_category: single,
   hotel: nataliathechampion
 )
 
-one = Room.create!(
+oned = Room.create!(
   number: 1,
   room_category: double,
   hotel: nataliathechampion
 )
 
-one = Room.create!(
-  number: 1,
+twov = Room.create!(
+  number: 2,
   room_category: vip,
   hotel: antoniotheking
 )
 
-one = Room.create!(
-  number: 1,
+twos = Room.create!(
+  number: 2,
   room_category: single,
   hotel: antoniotheking
 )
 
-one = Room.create!(
-  number: 1,
+twod = Room.create!(
+  number: 2,
   room_category: double,
+  hotel: antoniotheking
+)
+
+threv = Room.create!(
+  number: 3,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+fourd = Room.create!(
+  number: 4,
+  room_category: double,
+  hotel: antoniotheking
+)
+
+fifth = Room.create!(
+  number: 5,
+  room_category: single,
   hotel: antoniotheking
 )
 
