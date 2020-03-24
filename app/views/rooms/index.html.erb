@@ -1,4 +1,6 @@
 <h1>Rooms#index</h1>
 <% @rooms.each do |room| %>
-  <p><%=room.number %></p>
+  <%= link_to hotel_room_path(:hotel_id, room) do %>
+    <p><%=room.number %></p>
+  <% end %>
 <% end %>

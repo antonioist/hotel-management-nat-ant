@@ -1,7 +1,9 @@
 class RoomsController < ApplicationController
   def index
-    @rooms = Room.all.where(hotel_id: params[:hotel_id])
-    # @rooms = Room.all
+    @rooms = Room.where(hotel_id: params[:hotel_id])
+    if params[:category_id]
+      @rooms = @rooms.where(room_category_id: params[:category_id])
+    end
   end
 
   def show

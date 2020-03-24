@@ -67,49 +67,49 @@ onev = Room.create!(
 )
 
 ones = Room.create!(
-  number: 1,
+  number: 2,
   room_category: single,
   hotel: nataliathechampion
 )
 
 oned = Room.create!(
-  number: 1,
+  number: 3,
   room_category: double,
   hotel: nataliathechampion
 )
 
 twov = Room.create!(
-  number: 2,
+  number: 4,
   room_category: vip,
   hotel: antoniotheking
 )
 
 twos = Room.create!(
-  number: 2,
+  number: 5,
   room_category: single,
   hotel: antoniotheking
 )
 
 twod = Room.create!(
-  number: 2,
+  number: 6,
   room_category: double,
   hotel: antoniotheking
 )
 
 threv = Room.create!(
-  number: 3,
+  number: 7,
   room_category: vip,
   hotel: antoniotheking
 )
 
 fourd = Room.create!(
-  number: 4,
+  number: 8,
   room_category: double,
   hotel: antoniotheking
 )
 
 fifth = Room.create!(
-  number: 5,
+  number: 9,
   room_category: single,
   hotel: antoniotheking
 )

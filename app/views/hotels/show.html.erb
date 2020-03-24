@@ -1,4 +1,9 @@
 <h1>welcome to <%= @hotel.name %></h1>
-<p> <%= @hotel.address%> </p>
-<p><%= @hotel.phone_number%></p>
-<%= link_to "start", room_categories_path  %>
+<h1>room categories</h1>
+<% @room_categories.each do |room_category| %>
+  <%#= raise %>
+  <%= link_to hotel_rooms_path(@hotel, category_id: room_category.id) do %>
+    <p> <%= room_category.category %> </p>
+    <p><%= room_category.price %></p>
+  <% end %>
+<% end %>
