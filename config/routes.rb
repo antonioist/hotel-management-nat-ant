@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :hotels, only: [:index, :show] do
     resources :rooms, only: [:index, :show]
     resources :workers, only: [:index]
+    resources :room_categories, only: [:index, :show]
   end
-  resources :room_categories, only: [:index, :show]
   resources :amenities, only: [:index]
   resources :menu_items, only: [:index]
   resources :bookings, only: [:new, :create]
