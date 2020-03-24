@@ -1,7 +1,8 @@
 class ClientsController < ApplicationController
-   def new
+  def new
     @client = Client.new
   end
+
   def create
     @client = Client.new(client_params)
     if @client.save
@@ -14,6 +15,6 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-      params.require(:client).permit(:first_name, :last_name, :email, :social_number)
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
   end
 end
