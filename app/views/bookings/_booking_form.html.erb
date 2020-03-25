@@ -1,0 +1,9 @@
+<div class="col-xs-12 col-sm-6">
+<h2>booking page</h2>
+  <%= @booking.status %>
+  <%= simple_form_for(@booking) do |f| %>
+  <%= f.input :category, collection: Booking::CATEGORIES %>
+  <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <% end %>
+</div>
