@@ -37,6 +37,27 @@ antoniotheking = Hotel.create!(
   email: "antoniotheking@gmail.com"
 )
 
+rin = Hotel.create!(
+  name: "Rin",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
+ran = Hotel.create!(
+  name: "Ran",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
+run = Hotel.create!(
+  name: "Run",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
 puts "hotels done"
 
 puts "creating room categories"
