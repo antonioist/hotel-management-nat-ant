@@ -123,6 +123,24 @@ threv = Room.create!(
   hotel: antoniotheking
 )
 
+threvv = Room.create!(
+  number: 10,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+threvvv = Room.create!(
+  number: 11,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+threvvvv = Room.create!(
+  number: 12,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
 fourd = Room.create!(
   number: 8,
   room_category: double,
