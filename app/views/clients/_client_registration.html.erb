@@ -1,1 +1,21 @@
 
+
+  <div class="row">
+     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h2>Client Registration</h2>
+      <%= simple_form_for(@client) do |f| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 ">
+          <%= f.input :first_name %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <%= f.input :last_name %>
+        </div>
+      </div>
+      <%= f.input :email %>
+      <%= f.input :social_number %>
+      <%= f.submit "create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+
