@@ -25,6 +25,8 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @client = Client.new
     @booking = Booking.new
+    @amenities = Amenity.all
+    @menu_items = MenuItem.all
   end
 
   def update

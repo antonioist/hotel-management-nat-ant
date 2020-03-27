@@ -1,0 +1,22 @@
+  <h1 class="d-flex justify-content-center">menu items</h1>
+  <div class="container">
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+  <h2>Food menu</h2>
+  <% @menu_items.each do |menu_item| %>
+    <% if menu_item.category == 'FOOD' %>
+      <li><%= menu_item.name %> = $<%= menu_item.price %></li>
+    <% end %>
+  <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-6">
+  <h2>Drink menu</h2>
+  <% @menu_items.each do |menu_item| %>
+    <% if menu_item.category == 'DRINK' %>
+      <li><%= menu_item.name %> = $<%= menu_item.price %></li>
+    <% end %>
+  <% end %>
+  </div>
+</div>
+
+  </div>
