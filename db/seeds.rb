@@ -246,4 +246,22 @@ antonio = User.create!(
   hotel: antoniotheking
 )
 
+chikaka = User.create!(
+  first_name: "chikaka",
+  last_name: "chikoko",
+  email: "chikaka@lewagon.com",
+  password: "123123",
+  supervisor_role: true,
+  hotel: antoniotheking
+)
+
+biscuit = User.create!(
+  first_name: "biscuit",
+  last_name: "bisketo",
+  email: "biscuit@lewagon.com",
+  password: "123123",
+  superadmin_role: true,
+  hotel: antoniotheking
+)
+
 puts "users done"
