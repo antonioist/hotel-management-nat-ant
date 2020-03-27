@@ -23,7 +23,7 @@ puts "everything was destroyed succesfully"
 puts "creating amazing hotels"
 
 nataliathechampion = Hotel.create!(
-  name: "Nataliathechampion",
+  name: "Nataliatc",
   address: "123 natalia's house",
   phone_number: "12345678",
   email: "nataliathechampion@gmail.com"
@@ -31,7 +31,7 @@ nataliathechampion = Hotel.create!(
 
 
 antoniotheking = Hotel.create!(
-  name: "Antoniotheking",
+  name: "Antoniotk",
   address: "123 antonio's house",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"

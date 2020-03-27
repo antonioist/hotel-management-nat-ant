@@ -7,14 +7,11 @@
 </div>
 <div id="Hotel" class="tabcontent">
   <!-- <h3>Hotels</h3> -->
-  <div class="cards">
+  <div class="cards-dashboard">
     <% @hotels.each do |hotel| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1486591038957-19e7c73bdc41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+      <div class="card-dashboard-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1486591038957-19e7c73bdc41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
         <div class="card-hotel-name">
           <p><%= hotel.name %> </p>
-          <div class="card-hotel-room-count">
-            <p><%= hotel.rooms.count %></p>
-          </div>
         </div>
         <%= link_to "", hotel_path(hotel), class: "card-link"%>
       </div>
@@ -22,12 +19,28 @@
   </div>
 </div>
 <div id="Category" class="tabcontent">
-  <h3>categroy</h3>
-  <p>Paris is the capital of France.</p>
+  <div class="cards-dashboard">
+    <% @room_categories.each do |room_category| %>
+      <div class="card-dashboard-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+        <div class="card-hotel-name">
+          <p> <%= room_category.category %> </p>
+        </div>
+        <%= link_to "", root_path, class: "card-link"%>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div id="Room" class="tabcontent">
-  <h3>Room</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <div class="cards-dashboard">
+    <% @hotels.each do |hotel| %>
+      <div class="card-dashboard-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1486591038957-19e7c73bdc41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+        <div class="card-hotel-name">
+          <p><%= hotel.name %> </p>
+        </div>
+        <%= link_to "", hotel_index_edit_path(hotel), class: "card-link"%>
+      </div>
+    <% end %>
+  </div>
 </div>
 <div id="Menu" class="tabcontent">
   <h3>menu</h3>

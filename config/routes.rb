@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :hotels, only: [:index, :show] do
-    resources :rooms, only: [:index, :show]
+    resources :rooms, only: [:index, :show, :new, :edit, :update]
+    get 'index_edit', to: 'rooms#index_edit', as: :index_edit
     resources :workers, only: [:index]
   end
   resources :room_categories, only: [:index, :show]
