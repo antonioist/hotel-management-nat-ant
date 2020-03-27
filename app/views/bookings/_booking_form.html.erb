@@ -1,0 +1,8 @@
+
+<h2>booking page</h2>
+
+  <%= simple_form_for [@client, @booking] do |f| %>
+  <%= f.input :category, collection: Booking::CATEGORIES %>
+  <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <% end %>

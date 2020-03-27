@@ -23,7 +23,7 @@ puts "everything was destroyed succesfully"
 puts "creating amazing hotels"
 
 nataliathechampion = Hotel.create!(
-  name: "Nataliathechampion",
+  name: "Nataliatc",
   address: "123 natalia's house",
   phone_number: "12345678",
   email: "nataliathechampion@gmail.com"
@@ -31,7 +31,28 @@ nataliathechampion = Hotel.create!(
 
 
 antoniotheking = Hotel.create!(
-  name: "Antoniotheking",
+  name: "Antoniotk",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
+rin = Hotel.create!(
+  name: "Rin",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
+ran = Hotel.create!(
+  name: "Ran",
+  address: "123 antonio's house",
+  phone_number: "12345678",
+  email: "antoniotheking@gmail.com"
+)
+
+run = Hotel.create!(
+  name: "Run",
   address: "123 antonio's house",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"
@@ -98,6 +119,24 @@ twod = Room.create!(
 
 threv = Room.create!(
   number: 7,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+threvv = Room.create!(
+  number: 10,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+threvvv = Room.create!(
+  number: 11,
+  room_category: vip,
+  hotel: antoniotheking
+)
+
+threvvvv = Room.create!(
+  number: 12,
   room_category: vip,
   hotel: antoniotheking
 )
@@ -204,6 +243,24 @@ antonio = User.create!(
   last_name: "Sanchez",
   email: "antonio@lewagon.com",
   password: "123123",
+  hotel: antoniotheking
+)
+
+chikaka = User.create!(
+  first_name: "chikaka",
+  last_name: "chikoko",
+  email: "chikaka@lewagon.com",
+  password: "123123",
+  supervisor_role: true,
+  hotel: antoniotheking
+)
+
+biscuit = User.create!(
+  first_name: "biscuit",
+  last_name: "bisketo",
+  email: "biscuit@lewagon.com",
+  password: "123123",
+  superadmin_role: true,
   hotel: antoniotheking
 )
 

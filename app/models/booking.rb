@@ -5,6 +5,6 @@ class Booking < ApplicationRecord
   has_many :booking_amenities
   has_many :booking_items
   validates :category, :worker_id, presence: true
-   CATEGORIES = ["3 hours", "Night", "Plus one hour"]
-  validates :status, inclusion: {in: CATEGORIES}
+   CATEGORIES = ["3 hours", "night", "plus one hour"]
+  validates :category, inclusion: {in: CATEGORIES}
 end

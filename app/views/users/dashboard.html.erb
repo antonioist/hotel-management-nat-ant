@@ -1,0 +1,10 @@
+<div class="cards-dashboard">
+  <% @hotels.each do |hotel| %>
+    <div class="card-dashboard-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1486591038957-19e7c73bdc41?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+      <div class="card-hotel-name">
+        <p><%= hotel.name %> </p>
+      </div>
+      <%= link_to "", hotel_tabs_path(hotel), class: "card-link"%>
+    </div>
+  <% end %>
+</div>

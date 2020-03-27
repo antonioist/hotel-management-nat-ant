@@ -1,5 +1,5 @@
 <div class="title">
-  <h1>Rooms</h1>
+  <h1>Edit a Room</h1>
 </div>
 <div class="cards-room-number">
   <% @rooms.each do |room| %>
@@ -7,11 +7,7 @@
       <div class="card-hotel-name">
         <p><%=room.number %></p>
       </div>
-      <%= link_to "", hotel_room_path(:hotel_id, room), class: "card-link"%>
+      <%= link_to "", edit_hotel_room_path(:hotel_id, room), class: "card-link"%>
     </div>
   <% end %>
-
-<% end %>
-
 </div>
-
