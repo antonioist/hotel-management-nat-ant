@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :hotels, only: [:index, :show] do
     resources :rooms, only: [:index, :show, :new, :edit, :update]
     get 'index_edit', to: 'rooms#index_edit', as: :index_edit
+    get 'tabs', to: 'users#tabs', as: :tabs
     resources :workers, only: [:index]
   end
   resources :room_categories, only: [:index, :show]
