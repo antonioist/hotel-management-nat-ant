@@ -22,13 +22,20 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
+    @room = Room.where(hotel_id: params[:room_id])
     @client = Client.new
     @booking = Booking.new
     @amenities = Amenity.all
     @menu_items = MenuItem.all
+     @client = Client.new(client_params)
+    if @client.save
+      redirect_to hotel_room_path(:hotel_id, :id)
+    else
+      render :new
+    end
   end
 
+<<<<<<< Updated upstream
   def update
     if @room.update(room_params)
       redirect_to dashboard_path
@@ -41,6 +48,12 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:number)
+=======
+  private
+
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
+>>>>>>> Stashed changes
   end
 
 end

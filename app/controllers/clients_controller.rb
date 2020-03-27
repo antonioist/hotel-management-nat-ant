@@ -6,7 +6,7 @@ class ClientsController < ApplicationController
   def create
     @client = Client.new(client_params)
     if @client.save
-      redirect_to new_hotel_room_booking_path(:room_id)
+      redirect_to hotel_room_path(:hotel_id, :id)
     else
       render :new
     end
