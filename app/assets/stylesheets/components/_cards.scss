@@ -226,6 +226,9 @@
   width: 100%;
   height: 48px;
   background-color: $background-tab;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
 // Smallest device
