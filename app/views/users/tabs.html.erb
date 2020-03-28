@@ -12,13 +12,28 @@
   <p>Next summer</p>
 </div>
 <div id="Category" class="tabcontent">
-  <div class="cards-dashboard">
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add a Category", root_path, class: "button-tab"  %></span>
+      </div>
+    </div>
+  </div>
+  <div class="cards-room-number">
     <% @room_categories.each do |room_category| %>
-      <div class="card-dashboard-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+      <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
         <div class="card-hotel-name">
-          <p> <%= room_category.category %> </p>
+          <p> <%= room_category.category.capitalize %> </p>
         </div>
-        <%= link_to "", root_path, class: "card-link"%>
+        <div class="hover">
+          <span>More!</span>
+          <a href="" class="social-link">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a href="" class="social-link">
+            <i class="fas fa-trash-alt"></i>
+          </a>
+        </div>
       </div>
     <% end %>
   </div>
@@ -38,12 +53,12 @@
           <p><%=room.number %></p>
         </div>
         <div class="hover">
-          <span>Hover me!</span>
+          <span>More!</span>
           <a href="" class="social-link">
-            <i class="fab fa-twitter"></i>
+            <i class="fas fa-edit"></i>
           </a>
           <a href="" class="social-link">
-            <i class="fab fa-instagram"></i>
+            <i class="fas fa-trash-alt"></i>
           </a>
         </div>
       </div>
@@ -51,54 +66,113 @@
   </div>
 </div>
 <div id="Menu" class="tabcontent">
-  <div class="cards-room-number">
-    <% @menu_items.each do |menu| %>
-      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
-        <div class="card-hotel-name">
-          <p><%=menu.name %></p>
-          <p><%=menu.price %></p>
-        </div>
-        <%= link_to "", root_path, class: "card-link"%>
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add an Item", root_path, class: "button-tab"  %></span>
       </div>
-    <% end %>
+    </div>
+    <div class="cards-room-number">
+      <% @menu_items.each do |menu| %>
+        <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
+          <div class="card-hotel-name">
+            <p><%=menu.name.capitalize %></p>
+          </div>
+          <div class="hover">
+            <span>More!</span>
+            <a href="" class="social-link">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="" class="social-link">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <div id="Amenity" class="tabcontent">
-  <div class="cards-room-number">
-    <% @amenities.each do |amenity| %>
-      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
-        <div class="card-hotel-name">
-          <p><%=amenity.drink %></p>
-        </div>
-        <%= link_to "", root_path, class: "card-link"%>
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add an Amenity", root_path, class: "button-tab"  %></span>
       </div>
-    <% end %>
+    </div>
+    <div class="cards-room-number">
+      <% @amenities.each do |amenity| %>
+        <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2549&q=80)">
+          <div class="card-hotel-name">
+            <p><%=amenity.drink.capitalize %></p>
+          </div>
+          <div class="hover">
+            <span>More!</span>
+            <a href="" class="social-link">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="" class="social-link">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <div id="User" class="tabcontent">
-  <div class="cards-room-number">
-    <% @users.each do |user| %>
-      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
-        <div class="card-hotel-name">
-          <p><%=user.first_name %></p>
-          <p><%=user.last_name %></p>
-        </div>
-        <%= link_to "", root_path, class: "card-link"%>
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add a User", root_path, class: "button-tab"  %></span>
       </div>
-    <% end %>
+    </div>
+    <div class="cards-room-number">
+      <% @users.each do |user| %>
+        <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1514575110897-1253ff7b2ccb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+          <div class="card-hotel-name-users">
+            <p><%=user.first_name.capitalize %></p>
+            <p><%=user.last_name.capitalize %></p>
+          </div>
+          <div class="hover">
+            <span>More!</span>
+            <a href="" class="social-link">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="" class="social-link">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <div id="Worker" class="tabcontent">
-  <div class="cards-room-number">
-    <% @workers.each do |worker| %>
-      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
-        <div class="card-hotel-name">
-          <p><%=worker.first_name %></p>
-          <p><%=worker.last_name %></p>
-        </div>
-        <%= link_to "", root_path, class: "card-link"%>
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add a Worker", root_path, class: "button-tab"  %></span>
       </div>
-    <% end %>
+    </div>
+    <div class="cards-room-number">
+      <% @workers.each do |worker| %>
+        <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
+          <div class="card-hotel-name-users">
+            <p><%=worker.first_name.capitalize %></p>
+            <p><%=worker.last_name.capitalize %></p>
+          </div>
+          <div class="hover">
+            <span>More!</span>
+            <a href="" class="social-link">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="" class="social-link">
+              <i class="fas fa-trash-alt"></i>
+            </a>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 <script>
