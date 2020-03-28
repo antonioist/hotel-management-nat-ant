@@ -7,11 +7,9 @@
       <div class="card-hotel-name">
         <p><%=room.number %></p>
       </div>
-      <%= link_to "", hotel_room_path(:hotel_id, room), class: "card-link"%>
+      <%= link_to "", hotel_room_path(:hotel_id, :id), class: "card-link"%>
     </div>
   <% end %>
-
-<% end %>
 
 </div>
 

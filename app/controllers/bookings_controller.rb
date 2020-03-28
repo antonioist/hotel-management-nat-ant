@@ -1,17 +1,18 @@
 class BookingsController < ApplicationController
+  def show
+    @booking = Booking.where(hotel_id: params[:hotel_id])
+    @client = Client.where(hotel_id: params[:hotel_id])
+  end
   def new
     @booking = Booking.new
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @client = Client.find(params[client_params])
-    @room = Room.find(params[:room_id])
+    @room = Room.where(hotel_id: params[:hotel_id])
     @worker = Worker.where(hotel_id: params[:hotel_id])
-    @booking.room_id ||= @client.room_id
-    @booking.client = @client
-    if @booking.save
-      redirect_to room_categories_path(@room_category)
+    @client = Client.new(params[client_params])
+    if @client.save!
+      redirect_to hotel_booking_path(:booking_id)
     else
       render :new
     end
@@ -19,8 +20,13 @@ class BookingsController < ApplicationController
 
   private
 
-  def booking_params
-      params.require(:booking).permit(:category)
+  def client_params
+    params.require(:client)
+          .permit(:first_name,
+                  :last_name,
+                  :email,
+                  :social_number,
+                  bookings_atributes: [:category, :work_id])
   end
 
   def client_params
