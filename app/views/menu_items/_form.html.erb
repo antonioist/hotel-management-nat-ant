@@ -1,0 +1,6 @@
+<%= simple_form_for(@menu_item) do |f| %>
+  <%= f.input :name, hint: "Name of the Food, Drink, Toy", label: "Add a name" %>
+  <%= f.input :category, hint: "Food, Drink, Toy", label: "Add the category name", collection: MenuItem::CATEGORIES %>
+  <%= f.input :price, hint: "10,000, 20,000, 30,000", label: "Add a price", input_html: { type: 'number' } %>
+  <%= f.submit 'Save', class: 'button' %>
+<% end %>
