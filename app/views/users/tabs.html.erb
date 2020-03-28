@@ -4,6 +4,8 @@
   <button class="tablinks" onclick="openCity(event, 'Room')">Room</button>
   <button class="tablinks" onclick="openCity(event, 'Menu')">Menu</button>
   <button class="tablinks" onclick="openCity(event, 'Amenity')">Amenity</button>
+  <button class="tablinks" onclick="openCity(event, 'User')">User</button>
+  <button class="tablinks" onclick="openCity(event, 'Worker')">Worker</button>
 </div>
 <div id="Hotel" class="tabcontent">
   <!-- <h3>Hotels</h3> -->
@@ -22,13 +24,28 @@
   </div>
 </div>
 <div id="Room" class="tabcontent">
+  <div class="tab-card-button">
+    <div class="box-1">
+      <div class="btn btn-one">
+        <span><%= link_to "Add a Room", root_path, class: "button-tab"  %></span>
+      </div>
+    </div>
+  </div>
   <div class="cards-room-number">
     <% @rooms.each do |room| %>
-      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
+      <div class="card-category-room-number-tab" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
         <div class="card-hotel-name">
           <p><%=room.number %></p>
         </div>
-        <%= link_to "", root_path, class: "card-link"%>
+        <div class="hover">
+          <span>Hover me!</span>
+          <a href="" class="social-link">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="" class="social-link">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
       </div>
     <% end %>
   </div>
@@ -52,6 +69,32 @@
       <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
         <div class="card-hotel-name">
           <p><%=amenity.drink %></p>
+        </div>
+        <%= link_to "", root_path, class: "card-link"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id="User" class="tabcontent">
+  <div class="cards-room-number">
+    <% @users.each do |user| %>
+      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
+        <div class="card-hotel-name">
+          <p><%=user.first_name %></p>
+          <p><%=user.last_name %></p>
+        </div>
+        <%= link_to "", root_path, class: "card-link"%>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div id="Worker" class="tabcontent">
+  <div class="cards-room-number">
+    <% @workers.each do |worker| %>
+      <div class="card-category-room-number" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)">
+        <div class="card-hotel-name">
+          <p><%=worker.first_name %></p>
+          <p><%=worker.last_name %></p>
         </div>
         <%= link_to "", root_path, class: "card-link"%>
       </div>
