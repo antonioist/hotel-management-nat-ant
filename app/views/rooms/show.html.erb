@@ -3,26 +3,23 @@
     <div class="col-xs-12 col-sm-6">
     <h2>Room.number</h2>
     </div>
-  <div class="col-xs-12 col-sm-6">
-  <h2>Booking</h2>
-  <%= simple_form_for @client do |c| %>
-    <%= c.simple_fields_for :booking do |b| %>
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 ">
-          <%= c.input :first_name %>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <%= c.input :last_name %>
-        </div>
-      </div>
-        <%= c.input :email %>
-        <%= c.input :social_number %>
-        <%= b.input :category, collection: Booking::CATEGORIES %>
-        <%= b.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
-        <%= c.submit "create", class: "btn btn-primary" %>
-    <% end %>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-xs-12 col-sm-6">
+   <h2>booking page</h2>
+  <%= simple_form_for [@client, @booking] do |f| %>
+  <%= f.input :category, collection: Booking::CATEGORIES %>
+  <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
+  <%= @client.first_name %>
+  <%= @client.last_name %>
+  <%= @client.email %>
+  <%= @client.social_number %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
   <% end %>
+    </div>
   </div>
+</div>
 
     <div class="col-xs-12 col-sm-6">
       <h1>Amenity list</h1>

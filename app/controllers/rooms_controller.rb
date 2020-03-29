@@ -23,7 +23,7 @@ class RoomsController < ApplicationController
 
   def show
     @room_category = RoomCategory.where(hotel_id: params[:category_id])
-    @client = Client.new
+    @client = Client.last
     @booking = Booking.new
     @amenities = Amenity.all
     @menu_items = MenuItem.all
