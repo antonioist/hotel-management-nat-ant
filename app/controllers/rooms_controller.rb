@@ -14,6 +14,7 @@ class RoomsController < ApplicationController
   end
 
   def new
+    @hotel = Hotel.find(params[:hotel_id])
     @room = Room.new
   end
 
@@ -37,10 +38,21 @@ class RoomsController < ApplicationController
     end
   end
 
+  def create
+    @room = Room.new(room_params)
+    @hotel = Hotel.find(params[:hotel_id])
+    @room.hotel = @hotel
+    if @room.save
+      redirect_to hotel_tabs_path(hotel)
+    else
+      render :new
+    end
+  end
+
   private
 
   def room_params
-    params.require(:room).permit(:number)
+    params.require(:room).permit(:number, :hotel_id)
   end
 
 end
