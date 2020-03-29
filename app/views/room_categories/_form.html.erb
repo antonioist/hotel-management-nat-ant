@@ -1,0 +1,5 @@
+<%= simple_form_for(@room_category) do |f| %>
+  <%= f.input :category, hint: "Simple, Double, VIP", label: "Add the category name" %>
+  <%= f.input :price, hint: "10,000, 20,000, 30,000", label: "Add a price", input_html: { type: 'number' } %>
+  <%= f.submit 'Save', class: 'button' %>
+<% end %>
