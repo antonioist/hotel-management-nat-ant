@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :rooms, only: [:index, :show, :new, :edit, :update, :create]
     get 'index_edit', to: 'rooms#index_edit', as: :index_edit
     get 'tabs', to: 'users#tabs', as: :tabs
-    resources :workers, only: [:index]
+    resources :workers, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :rooms, only: [:index, :show]
     resources :clients, only: [:new, :create]
     resources :bookings, only: [:new, :create]

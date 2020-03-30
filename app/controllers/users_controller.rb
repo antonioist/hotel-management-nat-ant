@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   end
 
   def tabs
+    @hotel = current_user.hotel || Hotel.new
     @room_categories = RoomCategory.all.order('category ASC')
     @rooms = Room.all.where(hotel_id: params[:hotel_id]).order('number ASC')
     @menu_items = MenuItem.all.order('name ASC')
