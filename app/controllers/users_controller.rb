@@ -6,8 +6,8 @@ class UsersController < ApplicationController
   end
 
   def tabs
-    @room_categories = RoomCategory.all
-    @rooms = Room.all.where(hotel_id: params[:hotel_id])
+    @room_categories = RoomCategory.all.order('category ASC')
+    @rooms = Room.all.where(hotel_id: params[:hotel_id]).order('number ASC')
     @menu_items = MenuItem.all.order('name ASC')
     @amenities = Amenity.all.order('drink ASC')
     @workers = Worker.all.where(hotel_id: params[:hotel_id]).order('first_name ASC')

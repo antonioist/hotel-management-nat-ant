@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
   resources :room_categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
-  resources :amenities, only: [:index]
-  resources :menu_items, only: [:index, :new, :create]
+  resources :amenities, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :menu_items, only: [:index, :new, :create, :update, :edit, :destroy]
   resources :clients, only: [:new, :create] do
     resources :bookings, only: [:new, :create]
   end
