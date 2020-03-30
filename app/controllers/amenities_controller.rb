@@ -11,7 +11,7 @@ class AmenitiesController < ApplicationController
   def create
     @amenity = Amenity.new(amenity_params)
     if @amenity.save
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :new
     end
@@ -22,7 +22,7 @@ class AmenitiesController < ApplicationController
 
   def update
     if @amenity.update(amenity_params)
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class AmenitiesController < ApplicationController
 
   def destroy
     @amenity.destroy
-    redirect_to hotel_tabs_path(:hotel_id)
+    redirect_to hotel_tabs_path(current_user.hotel)
   end
 
   private

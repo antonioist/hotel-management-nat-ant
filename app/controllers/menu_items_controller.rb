@@ -11,7 +11,7 @@ class MenuItemsController < ApplicationController
   def create
     @menu_item = MenuItem.new(menu_item_params)
     if @menu_item.save
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :new
     end
@@ -22,7 +22,7 @@ class MenuItemsController < ApplicationController
 
   def update
     if @menu_item.update(menu_item_params)
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :edit
     end
@@ -30,7 +30,7 @@ class MenuItemsController < ApplicationController
 
   def destroy
     @menu_item.destroy
-    redirect_to hotel_tabs_path(:hotel_id)
+    redirect_to hotel_tabs_path(current_user.hotel)
   end
 
   private

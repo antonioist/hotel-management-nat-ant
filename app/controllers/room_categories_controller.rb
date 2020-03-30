@@ -7,7 +7,7 @@ class RoomCategoriesController < ApplicationController
   def create
     @room_category = RoomCategory.new(room_category_params)
     if @room_category.save
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :new
     end
@@ -18,7 +18,7 @@ class RoomCategoriesController < ApplicationController
 
   def update
     if @room_category.update(room_category_params)
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(current_user.hotel)
     else
       render :edit
     end
@@ -26,7 +26,7 @@ class RoomCategoriesController < ApplicationController
 
   def destroy
     @room_category.destroy
-    redirect_to hotel_tabs_path(:hotel_id)
+    redirect_to hotel_tabs_path(current_user.hotel)
   end
 
   private
