@@ -23,7 +23,7 @@ class WorkersController < ApplicationController
 
   def update
     if @worker.update(worker_params)
-      redirect_to hotel_tabs_path(:hotel_id)
+      redirect_to hotel_tabs_path(@worker.hotel)
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class WorkersController < ApplicationController
 
   def destroy
     @worker.destroy
-    redirect_to hotel_tabs_path(:hotel_id)
+    redirect_to hotel_tabs_path(@worker.hotel)
   end
 
   private
