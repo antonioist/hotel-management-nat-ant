@@ -6,11 +6,12 @@ Rails.application.routes.draw do
     resources :rooms, only: [:index, :show, :new, :edit, :update, :create]
     get 'index_edit', to: 'rooms#index_edit', as: :index_edit
     get 'tabs', to: 'users#tabs', as: :tabs
-    resources :workers, only: [:index, :new, :create, :edit, :update, :destroy]
+    resources :workers, only: [:index, :new, :create]
     resources :rooms, only: [:index, :show]
     resources :clients, only: [:new, :create]
     resources :bookings, only: [:new, :create]
   end
+  resources :workers, only: [:edit, :update, :destroy]
   resources :room_categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :amenities, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :menu_items, only: [:index, :new, :create, :update, :edit, :destroy]
