@@ -18,7 +18,6 @@ class RoomsController < ApplicationController
   def new
     @room = Room.new
     @hotel = Hotel.find(params[:hotel_id])
-    @room_category = RoomCategory.find(params[:room_category_id])
   end
 
   def create
