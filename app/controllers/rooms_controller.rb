@@ -23,11 +23,12 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
-    @client = Client.new
+    @room_category = RoomCategory.where(hotel_id: params[:category_id])
+    @client = Client.last
     @booking = Booking.new
     @amenities = Amenity.all
     @menu_items = MenuItem.all
+
   end
 
   def update
@@ -53,6 +54,11 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:number, :hotel_id)
+  end
+
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
+
   end
 
 end

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     get 'tabs', to: 'users#tabs', as: :tabs
     resources :workers, only: [:index]
     resources :rooms, only: [:index, :show]
-    resources :clients, only: [:new, :create]
-    resources :bookings, only: [:new, :create]
+    resources :clients, only: [:show, :new, :create]
+    resources :bookings, only: [:show, :new, :create]
   end
   resources :room_categories, only: [:index, :show, :new, :create]
   resources :amenities, only: [:index]
