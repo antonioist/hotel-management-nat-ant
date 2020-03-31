@@ -3,17 +3,17 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :hotels, only: [:index, :show] do
-    resources :rooms, only: [:index, :show, :new, :edit, :update, :create]
-    get 'index_edit', to: 'rooms#index_edit', as: :index_edit
+    resources :rooms, only: [:index, :show, :new, :create]
     get 'tabs', to: 'users#tabs', as: :tabs
-    resources :workers, only: [:index]
-    resources :rooms, only: [:index, :show]
+    resources :workers, only: [:index, :new, :create]
     resources :clients, only: [:show, :new, :create]
     resources :bookings, only: [:show, :new, :create]
   end
-  resources :room_categories, only: [:index, :show, :new, :create]
-  resources :amenities, only: [:index]
-  resources :menu_items, only: [:index, :new, :create]
+  resources :workers, only: [:edit, :update, :destroy]
+  resources :rooms, only: [:edit, :update, :destroy]
+  resources :room_categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :amenities, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :menu_items, only: [:index, :new, :create, :update, :edit, :destroy]
   resources :clients, only: [:new, :create] do
     resources :bookings, only: [:new, :create]
   end

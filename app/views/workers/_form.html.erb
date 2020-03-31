@@ -1,0 +1,5 @@
+<%= simple_form_for [@hotel, @worker] do |f| %>
+  <%= f.input :first_name, hint: "Fernanda, Emilia", label: "Add a first name" %>
+  <%= f.input :last_name, hint: "Takahara, Sanchez", label: "Add a last name" %>
+  <%= f.submit 'Save', class: 'button' %>
+<% end %>

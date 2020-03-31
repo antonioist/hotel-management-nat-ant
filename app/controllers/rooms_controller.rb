@@ -1,4 +1,6 @@
 class RoomsController < ApplicationController
+  before_action :set_room, only: [:edit, :update, :destroy, :show]
+
   def index
     @rooms = Room.where(hotel_id: params[:hotel_id])
     if params[:category_id]
@@ -6,24 +8,9 @@ class RoomsController < ApplicationController
     end
   end
 
-  def index_edit
-    @rooms = Room.where(hotel_id: params[:hotel_id])
-    if params[:category_id]
-      @rooms = @rooms.where(room_category_id: params[:category_id])
-    end
-  end
-
-  def new
-    @hotel = Hotel.find(params[:hotel_id])
-    @room = Room.new
-  end
-
-  def edit
-    @room = Room.find(params[:id])
-  end
-
   def show
-    @room_category = RoomCategory.where(hotel_id: params[:category_id])
+
+    @client = Client.new
     @client = Client.last
     @booking = Booking.new
     @amenities = Amenity.all
@@ -31,12 +18,9 @@ class RoomsController < ApplicationController
 
   end
 
-  def update
-    if @room.update(room_params)
-      redirect_to dashboard_path
-    else
-      render :edit
-    end
+  def new
+    @room = Room.new
+    @hotel = Hotel.find(params[:hotel_id])
   end
 
   def create
@@ -44,16 +28,38 @@ class RoomsController < ApplicationController
     @hotel = Hotel.find(params[:hotel_id])
     @room.hotel = @hotel
     if @room.save
-      redirect_to hotel_tabs_path(hotel)
+      redirect_to hotel_tabs_path
     else
       render :new
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @room.update(room_params)
+      redirect_to hotel_tabs_path(@room.hotel)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @room.destroy
+    redirect_to hotel_tabs_path(@room.hotel)
+  end
+
+
+
   private
 
+  def set_room
+    @room = Room.find(params[:id])
+  end
+
   def room_params
-    params.require(:room).permit(:number, :hotel_id)
+    params.require(:room).permit(:number, :room_category_id)
   end
 
   def client_params
