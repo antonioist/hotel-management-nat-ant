@@ -235,7 +235,8 @@ natalia = User.create!(
   last_name: "Takahara",
   email: "natalia@lewagon.com",
   password: "123123",
-  hotel: nataliathechampion
+  hotel: nataliathechampion,
+  supervisor_role: true
 )
 
 antonio = User.create!(
@@ -243,7 +244,8 @@ antonio = User.create!(
   last_name: "Sanchez",
   email: "antonio@lewagon.com",
   password: "123123",
-  hotel: antoniotheking
+  hotel: antoniotheking,
+  superadmin_role: true
 )
 
 chikaka = User.create!(
@@ -251,8 +253,8 @@ chikaka = User.create!(
   last_name: "chikoko",
   email: "chikaka@lewagon.com",
   password: "123123",
-  supervisor_role: true,
-  hotel: antoniotheking
+  hotel: antoniotheking,
+  user_role: true
 )
 
 biscuit = User.create!(
@@ -260,8 +262,8 @@ biscuit = User.create!(
   last_name: "bisketo",
   email: "biscuit@lewagon.com",
   password: "123123",
-  superadmin_role: true,
-  hotel: antoniotheking
+  hotel: antoniotheking,
+  user_role: true
 )
 
 puts "users done"

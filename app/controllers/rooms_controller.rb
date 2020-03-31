@@ -9,10 +9,13 @@ class RoomsController < ApplicationController
   end
 
   def show
+
     @client = Client.new
+    @client = Client.last
     @booking = Booking.new
     @amenities = Amenity.all
     @menu_items = MenuItem.all
+
   end
 
   def new
@@ -57,6 +60,11 @@ class RoomsController < ApplicationController
 
   def room_params
     params.require(:room).permit(:number, :room_category_id)
+  end
+
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
+
   end
 
 end

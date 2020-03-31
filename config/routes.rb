@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :rooms, only: [:index, :show, :new, :create]
     get 'tabs', to: 'users#tabs', as: :tabs
     resources :workers, only: [:index, :new, :create]
-    resources :clients, only: [:new, :create]
-    resources :bookings, only: [:new, :create]
+    resources :clients, only: [:show, :new, :create]
+    resources :bookings, only: [:show, :new, :create]
   end
   resources :workers, only: [:edit, :update, :destroy]
   resources :rooms, only: [:edit, :update, :destroy]

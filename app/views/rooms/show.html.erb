@@ -1,18 +1,29 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-      <h1><%= @room.room_category.category %></h1>
-      <p>Room number: <%= @room.number %></p>
+    <h2>Room.number</h2>
     </div>
+
+<div class="container">
+  <div class="row d-flex justify-content-center">
     <div class="col-xs-12 col-sm-6">
-      <h2>booking page</h2>
-      <%= simple_form_for @booking, url: hotel_bookings_path(@room, :room_id) do |f| %>
-      <%= f.input :category, collection: Booking::CATEGORIES %>
-      <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
-      <%= f.submit 'Save', class: 'btn btn-primary' %>
-      <% end %>
+   <h2>booking page</h2>
+  <%= simple_form_for [@client, @booking] do |f| %>
+  <%= f.input :category, collection: Booking::CATEGORIES %>
+  <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
+  <%= @client.first_name %>
+  <%= @client.last_name %>
+  <%= @client.email %>
+  <%= @client.social_number %>
+  <%= f.submit 'Save', class: 'btn btn-primary' %>
+  <% end %>
     </div>
+<<<<<<< HEAD
+  </div>
+</div>
+
     <%= render "clients/client_registration" %>
+
     <div class="col-xs-12 col-sm-6">
       <h1>Amenity list</h1>
       <% @amenities.each do |amenity| %>
@@ -21,4 +32,5 @@
     </div>
   </div>
     <%= render "menu_items/menu_item" %>
+
 </div>

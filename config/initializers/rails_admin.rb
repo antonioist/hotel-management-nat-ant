@@ -1,5 +1,4 @@
 RailsAdmin.config do |config|
-  config.authorize_with :cancan
 
   ## == Devise ==
   config.authenticate_with do
@@ -15,7 +14,7 @@ RailsAdmin.config do |config|
   # config.current_user_method(&:current_user)
 
   ## == CancanCan ==
-  # config.authorize_with :cancancan
+  config.authorize_with :cancancan
 
   ## == Pundit ==
   # config.authorize_with :pundit
