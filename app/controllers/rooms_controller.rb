@@ -24,7 +24,6 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params)
     @hotel = Hotel.find(params[:hotel_id])
     @room.hotel = @hotel
-    @room.room_category = @room_category
     if @room.save
       redirect_to hotel_tabs_path
     else
@@ -57,7 +56,7 @@ class RoomsController < ApplicationController
   end
 
   def room_params
-    params.require(:room).permit(:number)
+    params.require(:room).permit(:number, :room_category_id)
   end
 
 end

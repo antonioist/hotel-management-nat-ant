@@ -1,16 +1,5 @@
 <%= simple_form_for [@hotel, @room] do |f| %>
   <%= f.input :number, label: "Add the number of the room", hint: "12, 15, 16", input_html: { type: 'number' }%>
-  <div class="form-group">
-    <input type="hidden" name="post[room_category_ids][]" value="">
-    <div class="category-choices">
-      <% RoomCategory.all.each do |rcategory| %>
-        <input type="checkbox" class="hidden" value="<%= rcategory.id %>" name="post[rcategory_ids][]" id="post_rcategory_ids_<%= rcategory.id %>">
-        <label for="post_rcategory_ids_<%= rcategory.id %>">
-          <%= rcategory.category %>
-          <!-- <i class="fa fa-check"></i> -->
-        </label>
-      <% end %>
-    </div>
-  </div>
+  <%= f.association :room_category, as: :radio_buttons, collection: RoomCategory.all%>
   <%= f.submit 'Save', class: "button" %>
 <% end %>
