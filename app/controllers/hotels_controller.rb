@@ -13,7 +13,8 @@ class HotelsController < ApplicationController
     @markers = @hotels.map do |hotel|
       {
         lat: hotel.latitude,
-        lng: hotel.longitude
+        lng: hotel.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { hotel: hotel })
       }
     end
   end
@@ -22,7 +23,9 @@ class HotelsController < ApplicationController
     @markers = [
       {
         lat: @hotel.latitude ,
-        lng: @hotel.longitude
+        lng: @hotel.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { hotel: @hotel })
+
       }
     ]
   end
