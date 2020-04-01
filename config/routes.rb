@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   get 'dashboard', to: 'users#dashboard', as: :dashboard
+  get 'show_map/:id', to: 'hotels#show_map', as: :show_map
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
 end
