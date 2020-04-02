@@ -14,6 +14,15 @@ class UsersController < ApplicationController
       @amenities = Amenity.all.order('drink ASC')
       @workers = Worker.all.where(hotel_id: params[:hotel_id]).order('first_name ASC')
       @users = User.all.where(hotel_id: params[:hotel_id]).order('first_name ASC')
+      @hotels = Hotel.all
+      respond_to do |format|
+        format.xlsx {
+          response.headers[
+            'Content-Disposition'
+          ] = "attachment; filename=hotels.xlsx"
+        }
+        format.html { render :tabs }
+      end
     end
   end
 end
