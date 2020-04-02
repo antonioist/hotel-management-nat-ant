@@ -1,14 +1,31 @@
 <div class="title">
   <h1>Categories</h1>
 </div>
-<div class="cards-room-category">
-  <% @room_categories.each do |room_category| %>
-    <div class="card-category-room-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
-      <div class="card-hotel-name">
-        <p> <%= room_category.category %> </p>
-        <p><%= room_category.price %></p>
+<% if current_user.supervisor_role || current_user.superadmin_role %>
+  <div class="cards-room-category">
+    <% @room_categories.each do |room_category| %>
+      <div class="card-category-room-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+        <div class="card-hotel-name">
+          <p> <%= room_category.category %> </p>
+          <p><%= room_category.price %></p>
+        </div>
+        <%= link_to "", hotel_rooms_path(@hotel, category_id: room_category.id), class: "card-link"%>
       </div>
-      <%= link_to "", hotel_rooms_path(@hotel, category_id: room_category.id), class: "card-link"%>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="cards-room-category">
+    <% @room_categories.each do |room_category| %>
+      <div class="card-category-room-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
+        <div class="card-hotel-name">
+          <p> <%= room_category.category %> </p>
+          <p><%= room_category.price %></p>
+        </div>
+        <!-- <div class="card-category-room-count">
+          <p><%= room_category.rooms.count %></p>
+        </div> -->
+        <%= link_to "", hotel_rooms_path(@hotel, category_id: room_category.id), class: "card-link"%>
+      </div>
+    <% end %>
+  </div>
+<% end %>
