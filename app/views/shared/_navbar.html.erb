@@ -3,7 +3,7 @@
     <%= cl_image_tag("4C28E31B-BA8C-4B6C-8CF1-D29FB29AD76F_hmlf6j") %>
   <% end %>
   <% if user_signed_in? %>
-    <h2>User <%= current_user.first_name %> </h2>
+    <h2><%= current_user.first_name %> </h2>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,12 +11,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%#= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%#= link_to "Messages", "#", class: "nav-link" %>
-        </li>
+        <!-- <li class="nav-item active"> -->
+        <%#= link_to "Home", "#", class: "nav-link" %>
+        <!-- </li> -->
+        <!-- <li class="nav-item"> -->
+        <%#= link_to "Messages", "#", class: "nav-link" %>
+        <!-- </li> -->
         <li class="nav-item dropdown">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>

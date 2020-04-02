@@ -24,7 +24,7 @@ puts "creating amazing hotels"
 
 nataliathechampion = Hotel.create!(
   name: "Nataliatc",
-  address: "123 natalia's house",
+  address: "Tokyo",
   phone_number: "12345678",
   email: "nataliathechampion@gmail.com"
 )
@@ -32,28 +32,28 @@ nataliathechampion = Hotel.create!(
 
 antoniotheking = Hotel.create!(
   name: "Antoniotk",
-  address: "123 antonio's house",
+  address: "Meguro",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"
 )
 
 rin = Hotel.create!(
   name: "Rin",
-  address: "123 antonio's house",
+  address: "Shibuya",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"
 )
 
 ran = Hotel.create!(
   name: "Ran",
-  address: "123 antonio's house",
+  address: "Ebisu",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"
 )
 
 run = Hotel.create!(
   name: "Run",
-  address: "123 antonio's house",
+  address: "Shinjuku",
   phone_number: "12345678",
   email: "antoniotheking@gmail.com"
 )
