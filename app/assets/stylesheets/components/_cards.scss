@@ -242,6 +242,17 @@
   align-content: center;
 }
 
+.card-category-roomshow {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.7;
+  background-size: cover;
+  background-position: center;
+  margin-top: 16px;
+  }
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -287,3 +298,4 @@
     grid-template-columns: 1fr 1fr 1fr;;
   }
 }
+

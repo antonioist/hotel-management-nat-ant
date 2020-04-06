@@ -1,28 +1,25 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
-    <h2>Room.number</h2>
+      <div class="card-category-roomshow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)"></div>
+      <h2><%= @room.number %></h2>
+      <h2><%= @room.room_category.category %></h2>
     </div>
 
-<div class="container">
-  <div class="row d-flex justify-content-center">
     <div class="col-xs-12 col-sm-6">
-   <h2>booking page</h2>
-  <%= simple_form_for [@client, @booking] do |f| %>
-  <%= f.input :category, collection: Booking::CATEGORIES %>
-  <%= f.collection_check_boxes :worker_id, Worker.all, :id, :first_name %>
-  <%= @client.first_name %>
-  <%= @client.last_name %>
-  <%= @client.email %>
-  <%= @client.social_number %>
-  <%= f.submit 'Save', class: 'btn btn-primary' %>
-  <% end %>
+     <h2>Registration</h2>
+    <%= simple_form_for [@room, @client], url: clients_path(room_id: @room.id, client_id: @client.id) do |c| %>
+      <%= c.simple_fields_for :booking do |cb| %>
+        <%= cb.input :category, collection: Booking::CATEGORIES %>
+        <%= cb.collection_check_boxes :worker_id, Worker.where(hotel_id: params[:hotel_id]), :id, :first_name, :include_blank => false %>
+        <%= cb.input :first_name %>
+        <%= cb.input :last_name %>
+        <%= cb.input :email %>
+        <%= cb.input :social_number %>
+        <%= cb.submit 'Save', class: 'btn btn-primary' %>
+      <% end %>
+    <% end %>
     </div>
-<<<<<<< HEAD
-  </div>
-</div>
-
-    <%= render "clients/client_registration" %>
 
     <div class="col-xs-12 col-sm-6">
       <h1>Amenity list</h1>

@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:show, :new, :create]
   end
   resources :workers, only: [:edit, :update, :destroy]
-  resources :rooms, only: [:edit, :update, :destroy]
   resources :room_categories, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :amenities, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :menu_items, only: [:index, :new, :create, :update, :edit, :destroy]
+  resources :rooms, only: [:edit, :update, :destroy]
   resources :clients, only: [:new, :create] do
     resources :bookings, only: [:new, :create]
   end
