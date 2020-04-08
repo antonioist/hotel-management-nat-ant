@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_061141) do
+ActiveRecord::Schema.define(version: 2020_04_07_081937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,8 +68,10 @@ ActiveRecord::Schema.define(version: 2020_04_06_061141) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "status", default: false
+    t.bigint "user_id"
     t.index ["client_id"], name: "index_bookings_on_client_id"
     t.index ["room_id"], name: "index_bookings_on_room_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
     t.index ["worker_id"], name: "index_bookings_on_worker_id"
   end
 
@@ -80,6 +82,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_061141) do
     t.string "social_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
   create_table "hotels", force: :cascade do |t|
@@ -154,7 +158,9 @@ ActiveRecord::Schema.define(version: 2020_04_06_061141) do
   add_foreign_key "booking_items", "menu_items"
   add_foreign_key "bookings", "clients"
   add_foreign_key "bookings", "rooms"
+  add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "workers"
+  add_foreign_key "clients", "users"
   add_foreign_key "rooms", "hotels"
   add_foreign_key "rooms", "room_categories"
   add_foreign_key "users", "hotels"

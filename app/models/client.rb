@@ -1,4 +1,5 @@
 class Client < ApplicationRecord
-  has_many :bookings, :dependent => :destroy
-  accepts_nested_attributes_for :bookings, allow_destroy: true
+  has_many :bookings, inverse_of: :client
+  belongs_to :user
+  accepts_nested_attributes_for :bookings
 end

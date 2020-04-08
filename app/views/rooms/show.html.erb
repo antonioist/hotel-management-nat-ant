@@ -1,22 +1,40 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-6">
+        <h3 class="card-title-background-w">Room details</h3>
       <div class="card-category-roomshow" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://cdn.pixabay.com/photo/2014/10/16/08/39/bedroom-490779_1280.jpg)"></div>
-      <h2><%= @room.number %></h2>
-      <h2><%= @room.room_category.category %></h2>
+      <div class="card-room-show-info">
+        <p>Room Number: <%= @room.number %></p>
+        <p>Type: <%= @room.room_category.category %></p>
+      </div>
     </div>
 
     <div class="col-xs-12 col-sm-6">
-     <h2>Registration</h2>
-    <%= simple_form_for [@room, @client], url: clients_path(room_id: @room.id, client_id: @client.id) do |c| %>
-      <%= c.simple_fields_for :booking do |cb| %>
-        <%= cb.input :category, collection: Booking::CATEGORIES %>
-        <%= cb.collection_check_boxes :worker_id, Worker.where(hotel_id: params[:hotel_id]), :id, :first_name, :include_blank => false %>
-        <%= cb.input :first_name %>
-        <%= cb.input :last_name %>
-        <%= cb.input :email %>
-        <%= cb.input :social_number %>
-        <%= cb.submit 'Save', class: 'btn btn-primary' %>
+     <h3 class="card-title-background-w">Registration</h3>
+      <%= simple_form_for @client, url: clients_path(room_id: @room.id, client_id: @client.id) do |c| %>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+        <%= c.input :first_name %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+        <%= c.input :last_name %>
+        </div>
+      </div>
+        <%= c.input :email %>
+        <%= c.input :social_number %>
+        <%= c.input :user_id, as: :hidden, input_html: { value: params[:user_id] } %>
+      <%= c.simple_fields_for :bookings do |b| %>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <%= b.input :category, collection: Booking::CATEGORIES, label: "Time", include_blank: false %>
+          </div>
+          <div class="col-xs-12 col-sm-6 d-flex justify-content-between">
+            <%= b.association :worker, collection: Worker.where(hotel_id: params[:hotel_id]), include_blank: false, label: "Employee" %>
+          </div>
+        </div>
+        <%= b.input :room_id, as: :hidden, input_html: { value: params[:room_id] } %>
+        <%= b.input :user_id, as: :hidden, input_html: { value: params[:user_id] } %>
+        <%= b.submit 'Save', class: 'button-booking' %>
       <% end %>
     <% end %>
     </div>
@@ -28,6 +46,6 @@
       <% end %>
     </div>
   </div>
-    <%= render "menu_items/menu_item" %>
+  <%= link_to "menu", menu_items_path %>
 
 </div>
