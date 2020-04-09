@@ -9,13 +9,11 @@ class RoomsController < ApplicationController
   end
 
   def show
-
     @client = Client.new
     @client = Client.last
     @booking = Booking.new
     @amenities = Amenity.all
     @menu_items = MenuItem.all
-
   end
 
   def new

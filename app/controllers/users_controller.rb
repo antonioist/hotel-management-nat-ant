@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def booking_history
+    @bookings = Booking.all
+  end
+
   def tabs
     if current_user.superadmin_role
       @hotel = current_user.hotel || Hotel.new
