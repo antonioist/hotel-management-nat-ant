@@ -19,7 +19,7 @@
       <div class="card-category-room-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1524397057410-1e775ed476f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)">
         <div class="card-hotel-name">
           <p> <%= room_category.category %> </p>
-          <p><%= room_category.price %></p>
+          <p><%= humanized_money_with_symbol(room_category.price) %></p>
         </div>
         <!-- <div class="card-category-room-count">
           <p><%= room_category.rooms.count %></p>

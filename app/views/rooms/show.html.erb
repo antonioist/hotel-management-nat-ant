@@ -9,7 +9,7 @@
           <div class="grid-item-detail border-bottom">Type</div>
           <div class="grid-item-detail border-bottom"> <%= @room.room_category.category %> </div>
           <div class="grid-item-detail border-bottom">Price</div>
-          <div class="grid-item-detail border-bottom"> $<%= @room.room_category.price %> </div>
+          <div class="grid-item-detail border-bottom"> <p><%= humanized_money_with_symbol(@room.room_category.price) %></p> </div>
         </div>
     </div>
     <div class="col-xs-12 col-sm-6">
@@ -17,14 +17,14 @@
       <%= simple_form_for @client, url: clients_path(room_id: @room.id, client_id: @client.id) do |c| %>
       <div class="row mt-3">
         <div class="col-xs-12 col-sm-6">
-        <%= c.input :first_name, placeholder: "Antonio Lucas"%>
+        <%= c.input :first_name, placeholder: "eg.Antonio Lucas"%>
         </div>
         <div class="col-xs-12 col-sm-6">
-        <%= c.input :last_name, placeholder: "Oliveira" %>
+        <%= c.input :last_name, placeholder: "eg.Oliveira" %>
         </div>
       </div>
-        <%= c.input :email, placeholder: "antonio.oliveira@gmail.com"  %>
-        <%= c.input :social_number, placeholder: "124362A45SDF" %>
+        <%= c.input :email, placeholder: "eg.antonio.oliveira@gmail.com"  %>
+        <%= c.input :social_number, placeholder: "eg.124362A45SDF" %>
         <%= c.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
       <%= c.simple_fields_for :bookings do |b| %>
         <div class="row">
@@ -40,7 +40,7 @@
         <p>Amenity list</p>
         <div class="d-flex bd-highlight mb-3 border-top">
         <h3 class="p-2 bd-highlight mt-3">Total</h3>
-        <p class="ml-auto p-3 mb-0 bd-highlight mt-3">$ 5000</p>
+        <p class="ml-auto p-3 mb-0 bd-highlight mt-3">¥ 5000</p>
         </div>
         <%= b.submit 'Save', class: 'button-booking' %>
       <% end %>
@@ -48,3 +48,4 @@
     </div>
   </div>
 </div>
+
