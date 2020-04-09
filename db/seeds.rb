@@ -5,13 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+CATEGORIES = ["3 hours", "night", "plus one hour"]
 puts "Obliterating starlight hotel "
 # BookingItem.destroy_all
 # BookingAmenity.destroy_all
 Amenity.destroy_all
 MenuItem.destroy_all
-# Client.destroy_all
-# Booking.destroy_all
+Client.destroy_all
+Booking.destroy_all
 Room.destroy_all
 RoomCategory.destroy_all
 Worker.destroy_all
@@ -59,6 +60,53 @@ run = Hotel.create!(
 )
 
 puts "hotels done"
+
+puts "creating clients"
+
+client1 = Client.create!(
+  first_name: "Linchien",
+  last_name: "Huang",
+  email: "linchien@lewagon.com",
+  social_number: "123456"
+)
+
+client2 = Client.create!(
+  first_name: "Antonia",
+  last_name: "Trespalacios",
+  email: "antonia@lewagon.com",
+  social_number: "1234567"
+)
+
+client3 = Client.create!(
+  first_name: "Marcela",
+  last_name: "Palacios",
+  email: "antonia@lewagon.com",
+  social_number: "1234567"
+)
+
+client4 = Client.create!(
+  first_name: "Cristina",
+  last_name: "Espalacios",
+  email: "antonia@lewagon.com",
+  social_number: "1234567"
+)
+
+client5 = Client.create!(
+  first_name: "Maria",
+  last_name: "Cueto",
+  email: "antonia@lewagon.com",
+  social_number: "1234567"
+)
+
+client6 = Client.create!(
+  first_name: "Ramon",
+  last_name: "Cristone",
+  email: "antonia@lewagon.com",
+  social_number: "1234567"
+)
+
+puts "clients done"
+
 
 puts "creating room categories"
 
@@ -155,6 +203,7 @@ fifth = Room.create!(
 
 puts "rooms done"
 
+
 puts "creating amenities"
 
 caipirinha = Amenity.create!(
@@ -226,6 +275,18 @@ felipe = Worker.create!(
   hotel: antoniotheking
 )
 
+jorge = Worker.create!(
+  first_name: "Jorge",
+  last_name: "Lacoste",
+  hotel: antoniotheking
+)
+
+gustavo = Worker.create!(
+  first_name: "Gustavo",
+  last_name: "Curado",
+  hotel: antoniotheking
+)
+
 puts "workers finished"
 
 puts "creating Users"
@@ -267,3 +328,49 @@ biscuit = User.create!(
 )
 
 puts "users done"
+
+puts "creating bookings"
+
+# 20.times do
+#   Booking.create!(
+#     category: CATEGORIES.sample,
+#     room: (threv, twos, twov, twod, threvv, threvvv, threvvvv, fourd, fifth).sample
+#     worker: (maria, felipe).sample
+#     client: (client1, client2, client3, client4, client5, client6).sample
+#     user: biscuit
+#   )
+# end
+
+booking1 = Booking.create!(
+  category: CATEGORIES.sample,
+  room: threv,
+  worker: maria,
+  client: client1,
+  user: biscuit
+)
+
+booking2 = Booking.create!(
+  category: CATEGORIES.sample,
+  room: threv,
+  worker: felipe,
+  client: client2,
+  user: biscuit
+)
+
+booking3 = Booking.create!(
+  category: CATEGORIES.sample,
+  room: threv,
+  worker: jorge,
+  client: client2,
+  user: biscuit
+)
+
+booking3 = Booking.create!(
+  category: CATEGORIES.sample,
+  room: threv,
+  worker: gustavo,
+  client: client2,
+  user: biscuit
+)
+
+puts "bookings done"
