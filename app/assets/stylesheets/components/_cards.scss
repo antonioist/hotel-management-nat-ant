@@ -298,15 +298,11 @@
     grid-template-columns: 1fr 1fr 1fr;;
   }
 }
-.card-title-background-w {
+.card-title {
   display: flex;
   justify-content: center;
   padding-bottom: 16px;
-  background-color: white;
   padding-top: 10px;
   margin-top: 16px;
 }
 
-.card-room-show-info {
-  padding: 8px;
-}
