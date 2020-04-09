@@ -1,6 +1,25 @@
 <% @bookings.each do |booking| %>
-  <p><%= booking.room.hotel.name %></p>
-  <p><%= booking.room.room_category.category %></p>
-  <p><%= booking.room.number %></p>
-  <p><%= booking.room.room_category.price %></p>
+  <div class="card-product">
+    <%= cl_image_tag("photo-1486591038957-19e7c73bdc41_sagxbw")%>
+    <div class="card-product-titles">
+      <p>Hotel:</p>
+      <p>Category:</p>
+      <p>Room:</p>
+      <p>Price:</p>
+    </div>
+    <div class="card-product-infos">
+      <p><%= booking.room.hotel.name %></p>
+      <p><%= booking.room.room_category.category %></p>
+      <p><%= booking.room.number %></p>
+      <p><%= booking.room.room_category.price %></p>
+    </div>
+    <div class="card-product-buttons">
+      <%= link_to root_path, class: "card-product-history-button" do  %>
+        <i class="fas fa-info-circle"></i>
+      <% end %>
+      <%= link_to root_path, class: "card-product-history-button" do  %>
+        <i class="far fa-heart"></i>
+      <% end %>
+    </div>
+  </div>
 <% end %>
