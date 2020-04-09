@@ -10,8 +10,8 @@ puts "Obliterating starlight hotel "
 # BookingAmenity.destroy_all
 Amenity.destroy_all
 MenuItem.destroy_all
-# Client.destroy_all
-# Booking.destroy_all
+Client.destroy_all
+Booking.destroy_all
 Room.destroy_all
 RoomCategory.destroy_all
 Worker.destroy_all
