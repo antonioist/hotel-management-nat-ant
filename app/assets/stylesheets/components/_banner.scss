@@ -20,3 +20,28 @@
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
+
+// table from booking info
+table {
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+tbody tr:nth-child(even) {
+   background-color: #e0dede;
+}
+// grid for room/show room details
+
+.grid-container-detail {
+  display: grid;
+  grid-template-columns: auto auto;
+  padding: 10px;
+}
+.grid-item-detail {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
