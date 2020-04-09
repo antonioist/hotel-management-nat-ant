@@ -2,6 +2,7 @@ class RoomsController < ApplicationController
   before_action :set_room, only: [:edit, :update, :destroy, :show]
 
   def index
+    @hotel = Hotel.find(params[:hotel_id])
     @rooms = Room.where(hotel_id: params[:hotel_id])
     if params[:category_id]
       @rooms = @rooms.where(room_category_id: params[:category_id])
@@ -10,8 +11,7 @@ class RoomsController < ApplicationController
 
   def show
     @client = Client.new
-    @client = Client.last
-    @booking = Booking.new
+    @client.bookings.build
     @amenities = Amenity.all
     @menu_items = MenuItem.all
   end
@@ -53,16 +53,19 @@ class RoomsController < ApplicationController
   private
 
   def set_room
-    @room = Room.find(params[:id])
+    @rooms = Room.where(hotel_id: params[:hotel_id])
   end
 
   def room_params
     params.require(:room).permit(:number, :room_category_id)
   end
 
-  def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
 
+  def client_params
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number,
+                                   :booking_attributes => [:category, :worker_id]
+                                   )
   end
+
 
 end

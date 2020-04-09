@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 mt-3">
+      <h3 class="card-title-background-w">Booking Details</h3>
+      <table>
+        <tr>
+          <th>First name</th>
+          <td> <%= @booking.client.first_name%> </td>
+        </tr>
+        <tr>
+          <th>Last name</th>
+          <td> <%= @booking.client.last_name%> </td>
+        </tr>
+        <tr>
+          <th>E-mail</th>
+          <td> <%= @booking.client.email%> </td>
+        </tr>
+        <tr>
+          <th>Social number</th>
+          <td> <%= @booking.client.social_number%> </td>
+        </tr>
+        <tr>
+          <th>Responsible employee</th>
+          <td> <%= @booking.worker.first_name %> </td>
+        </tr>
+        <tr>
+          <th>Room type</th>
+          <td> <%= @booking.category %> </td>
+        </tr>
+        <tr>
+          <th>Room number</th>
+          <td> <%= @booking.room.number %> </td>
+        </tr>
+        <tr>
+          <th>Availability</th>
+          <td> <%= @booking.status %> </td>
+        </tr>
+      </table>
+      <p class="d-flex justify-content-end">Booking No.<%= @booking.id %></p>
+    </div>
+  </div>
+</div>
+
+
+

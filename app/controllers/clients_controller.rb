@@ -4,26 +4,23 @@ class ClientsController < ApplicationController
   end
 
   def create
-    @room = Room.where(hotel_id: params[:hotel_id])
-    @worker = Worker.where(hotel_id: params[:hotel_id])
-    @client = Client.new(params[client_params])
-    if @client.save
-      redirect_to hotel_room_path(:hotel_id, :id)
+    @client = current_user.clients.new(client_params)
+    @room = Room.find(params[:room_id])
+    @client.user = current_user
+
+    if @client.save!
+     redirect_to hotel_path(@room.hotel)
     else
-      render :new
+      render 'rooms/show'
     end
   end
-
-
-
 
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :social_number)
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number,:user_id,
+      bookings_attributes: [:id, :category, :worker_id, :room_id, :user_id]
+    )
+  end
 
-  end
-  def booking_params
-    params.require(:booking).permit(:category, :work_id)
-  end
 end
