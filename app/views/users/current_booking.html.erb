@@ -1,1 +1,4 @@
-<p>current booking</p>
+<p><%= @bookings.last.room.hotel.name %></p>
+<p><%= @bookings.last.room.room_category.category %></p>
+<p><%= @bookings.last.room.number %></p>
+<p><%= @bookings.last.room.room_category.price %></p>
