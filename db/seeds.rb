@@ -11,8 +11,8 @@ puts "Obliterating starlight hotel "
 # BookingAmenity.destroy_all
 Amenity.destroy_all
 MenuItem.destroy_all
-Client.destroy_all
 Booking.destroy_all
+Client.destroy_all
 Room.destroy_all
 RoomCategory.destroy_all
 Worker.destroy_all
@@ -331,46 +331,46 @@ puts "users done"
 
 puts "creating bookings"
 
-# 20.times do
-#   Booking.create!(
-#     category: CATEGORIES.sample,
-#     room: (threv, twos, twov, twod, threvv, threvvv, threvvvv, fourd, fifth).sample
-#     worker: (maria, felipe).sample
-#     client: (client1, client2, client3, client4, client5, client6).sample
-#     user: biscuit
-#   )
-# end
+20.times do
+  Booking.create!(
+    category: CATEGORIES.sample,
+    room: Room.all.sample,
+    worker: Worker.all.sample,
+    client: Client.all.sample,
+    user: biscuit
+  )
+end
 
-booking1 = Booking.create!(
-  category: CATEGORIES.sample,
-  room: threv,
-  worker: maria,
-  client: client1,
-  user: biscuit
-)
+# booking1 = Booking.create!(
+#   category: CATEGORIES.sample,
+#   room: threv,
+#   worker: maria,
+#   client: client1,
+#   user: biscuit
+# )
 
-booking2 = Booking.create!(
-  category: CATEGORIES.sample,
-  room: threv,
-  worker: felipe,
-  client: client2,
-  user: biscuit
-)
+# booking2 = Booking.create!(
+#   category: CATEGORIES.sample,
+#   room: threv,
+#   worker: felipe,
+#   client: client2,
+#   user: biscuit
+# )
 
-booking3 = Booking.create!(
-  category: CATEGORIES.sample,
-  room: threv,
-  worker: jorge,
-  client: client2,
-  user: biscuit
-)
+# booking3 = Booking.create!(
+#   category: CATEGORIES.sample,
+#   room: threv,
+#   worker: jorge,
+#   client: client2,
+#   user: biscuit
+# )
 
-booking3 = Booking.create!(
-  category: CATEGORIES.sample,
-  room: threv,
-  worker: gustavo,
-  client: client2,
-  user: biscuit
-)
+# booking3 = Booking.create!(
+#   category: CATEGORIES.sample,
+#   room: threv,
+#   worker: gustavo,
+#   client: client2,
+#   user: biscuit
+# )
 
 puts "bookings done"
