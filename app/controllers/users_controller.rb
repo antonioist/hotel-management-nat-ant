@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   end
 
   def booking_history
-    @bookings = Booking.all
+    @bookings = current_user.bookings.sort_by(&:created_at).reverse
+  end
+
+  def current_booking
+    @bookings = current_user.bookings
   end
 
   def tabs
