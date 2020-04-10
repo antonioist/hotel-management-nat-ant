@@ -37,12 +37,14 @@
         </div>
         <%= b.input :room_id, as: :hidden, input_html: { value: params[:room_id] } %>
         <%= b.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-        <p>Amenity list</p>
+        <%= b.simple_fields_for :amenities do |a| %>
+        <%= a.input :drink, collection: Amenity.all, include_blank: false %>
         <div class="d-flex bd-highlight mb-3 border-top">
         <h3 class="p-2 bd-highlight mt-3">Total</h3>
         <p class="ml-auto p-3 mb-0 bd-highlight mt-3">¥ 5000</p>
         </div>
         <%= b.submit 'Save', class: 'button-booking' %>
+        <% end %>
       <% end %>
     <% end %>
     </div>
