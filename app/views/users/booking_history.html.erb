@@ -20,8 +20,8 @@
       <% if current_user.favorited?(booking) %>
         <i class="fas fa-heart card-product-history-button"></i>
       <% else %>
-        <%= link_to booking_history_path, class: "card-product-history-button" do  %>
-          <i class="far fa-heart"><% current_user.favorite(booking) %></i>
+        <%= link_to favorite_path(booking), class: "card-product-history-button" do  %>
+          <i class="far fa-heart"></i>
         <% end %>
       <% end %>
     </div>

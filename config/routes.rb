@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'booking_history', to: 'users#booking_history', as: :booking_history
   get 'current_booking', to: 'users#current_booking', as: :current_booking
   get 'favorites', to: 'users#favorites', as: :favorites
+  get 'favorite/:id', to: 'bookings#favorite', as: :favorite
   get 'show_map/:id', to: 'hotels#show_map', as: :show_map
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -8,5 +8,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
-end
+  def favorite
+    booking = Booking.find(params[:id])
+    current_user.favorite(booking)
+    redirect_to booking_history_path
+  end
 
+end
