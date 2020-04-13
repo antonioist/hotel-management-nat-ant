@@ -6,4 +6,5 @@ class User < ApplicationRecord
   belongs_to :hotel
   has_one_attached :photo
   has_many :bookings
+  acts_as_favoritor
 end
