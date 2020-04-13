@@ -17,8 +17,12 @@
       <%= link_to root_path, class: "card-product-history-button" do  %>
         <i class="fas fa-info-circle"></i>
       <% end %>
-      <%= link_to root_path, class: "card-product-history-button" do  %>
-        <i class="far fa-heart"></i>
+      <% if current_user.favorited?(booking) %>
+        <i class="fas fa-heart card-product-history-button"></i>
+      <% else %>
+        <%= link_to booking_history_path, class: "card-product-history-button" do  %>
+          <i class="far fa-heart"><% current_user.favorite(booking) %></i>
+        <% end %>
       <% end %>
     </div>
   </div>

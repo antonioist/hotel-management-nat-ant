@@ -9,6 +9,7 @@ CATEGORIES = ["3 hours", "night", "plus one hour"]
 puts "Obliterating starlight hotel "
 # BookingItem.destroy_all
 # BookingAmenity.destroy_all
+Favorite.destroy_all
 Amenity.destroy_all
 MenuItem.destroy_all
 Booking.destroy_all

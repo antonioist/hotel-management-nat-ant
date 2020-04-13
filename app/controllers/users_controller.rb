@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @bookings = current_user.bookings
   end
 
+  def favorites
+    @favorites = current_user.all_favorites
+  end
+
   def tabs
     if current_user.superadmin_role
       @hotel = current_user.hotel || Hotel.new
