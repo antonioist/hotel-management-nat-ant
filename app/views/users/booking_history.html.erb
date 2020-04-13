@@ -18,7 +18,9 @@
         <i class="fas fa-info-circle"></i>
       <% end %>
       <% if current_user.favorited?(booking) %>
-        <i class="fas fa-heart card-product-history-button"></i>
+        <%= link_to unfavorite_path(booking), class: "card-product-history-button" do  %>
+          <i class="fas fa-heart"></i>
+        <% end %>
       <% else %>
         <%= link_to favorite_path(booking), class: "card-product-history-button" do  %>
           <i class="far fa-heart"></i>

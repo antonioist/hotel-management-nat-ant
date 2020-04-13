@@ -14,4 +14,10 @@ class BookingsController < ApplicationController
     redirect_to booking_history_path
   end
 
+  def unfavorite
+    booking = Booking.find(params[:id])
+    current_user.unfavorite(booking)
+    redirect_to booking_history_path
+  end
+
 end
