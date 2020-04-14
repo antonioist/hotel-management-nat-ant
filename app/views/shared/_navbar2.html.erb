@@ -1,11 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to my_page_path, class: "navbar-icon" do %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+  <%= link_to root_path, class: "navbar-brand" do %>
+    <%= cl_image_tag("4C28E31B-BA8C-4B6C-8CF1-D29FB29AD76F_hmlf6j", class: "logo") %>
+  <% end %>
+  <%= link_to hotels_path do %>
+    <% if current_user.photo.attached? %>
+      <%= cl_image_tag(current_user.photo.key, class: "avatar dropdown-toggle") %>
+    <% else %>
+      <%= cl_image_tag( "Salesman_lk1ql7", class: "avatar dropdown-toggle")%>
+    <% end %>
+  <% end %>
+  <%= link_to dashboard_path, class: "navbar-icon" do %>
     <i class="fas fa-user fa-2x"></i>
-  <% end %>
-  <%= link_to pets_path do %>
-    <%= cl_image_tag("logo_sq7dpa", class: "logo2", heigth: 500, width: 500, crop: :fill) %>
-  <% end %>
-  <%= link_to chats_path, class: "navbar-icon" do %>
-    <i class="fas fa-comment-dots fa-2x"></i>
   <% end %>
 </div>
