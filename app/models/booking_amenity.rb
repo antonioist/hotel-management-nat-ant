@@ -1,4 +1,5 @@
 class BookingAmenity < ApplicationRecord
-  belongs_to :booking
   belongs_to :amenity
+  belongs_to :booking
 end
+

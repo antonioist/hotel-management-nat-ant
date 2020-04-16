@@ -6,25 +6,26 @@ class ClientsController < ApplicationController
   def create
     @client = current_user.clients.new(client_params)
     @room = Room.find(params[:room_id])
-    @booking_amenity = BookingAmenity.where(amenity_id: params[:amenity_id])
-    @booking_menu_item = BookingItem.where(menu_item_id: params[:menu_item_id])
     @client.user = current_user
-raise
     if @client.save
-     redirect_to hotel_path(@room.hotel)
+      respond_to do |format|
+        format.html { redirect_to hotel_path(@room.hotel), notice: "Successfully Booked room #{@room.number}" }
+        format.js
+      end
     else
-      render 'rooms/show'
+      respond_to do |format|
+        format.html { render 'rooms/show' }
+        format.js
+      end
     end
   end
 
   private
 
   def client_params
-    params.require(:client).permit(:first_name, :last_name, :email, :social_number,:user_id,
-      bookings_attributes: [:id, :category, :worker_id, :room_id, :user_id
-      # booking_amenities_attributes: [ :id, :amenity_id],
-      # booking_item_attributes: [ :id, :menu_item_id]
-      ]
+    params.require(:client).permit(:first_name, :last_name, :email, :social_number, :user_id,
+      bookings_attributes: [:id, :category, :worker_id, :room_id, :user_id, :amenity_ids , :menu_item_ids
+       ]
     )
   end
 

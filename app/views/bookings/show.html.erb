@@ -5,11 +5,11 @@
       <table>
         <tr>
           <th>First name</th>
-          <td> <%= @booking.client.first_name%> </td>
+          <td> <%= @booking.client.first_name.capitalize %> </td>
         </tr>
         <tr>
           <th>Last name</th>
-          <td> <%= @booking.client.last_name%> </td>
+          <td> <%= @booking.client.last_name.capitalize %> </td>
         </tr>
         <tr>
           <th>E-mail</th>
@@ -37,6 +37,13 @@
         </tr>
       </table>
       <p class="d-flex justify-content-end">Booking No.<%= @booking.id %></p>
+    </div>
+    <div class="col-xs-12 col-sm-6 mt-3">
+    <%= simple_form_for @booking_amenity, url: booking_amenities_path do |a| %>
+    <%= a.input :amenity_id, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+    <%= a.submit 'Save', class: 'button-booking' %>
+    <% end %>
+
     </div>
   </div>
 </div>

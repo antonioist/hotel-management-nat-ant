@@ -37,13 +37,23 @@
         </div>
           <%= b.input :room_id, as: :hidden, input_html: { value: params[:room_id] } %>
           <%= b.input :user_id, as: :hidden, input_html: { value: current_user.id } %>
-          <%= b.association :amenity, collection: Amenity.all, include_blank: false %>
-          <%= b.association :menu_item, collection: MenuItem.all, include_blank: false %>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+          <%= b.association :amenities, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+
+          </div>
+          <div class="col-xs-12 col-sm-6">
+          <%= b.association :menu_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
+          </div>
+        </div>
+
           <div class="d-flex bd-highlight mb-3 border-top">
           <h3 class="p-2 bd-highlight mt-3">Total</h3>
           <p class="ml-auto p-3 mb-0 bd-highlight mt-3">¥ 5000</p>
           </div>
           <%= b.submit 'Save', class: 'button-booking' %>
+
       <% end %>
     <% end %>
     </div>
