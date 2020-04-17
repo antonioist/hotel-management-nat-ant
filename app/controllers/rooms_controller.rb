@@ -11,7 +11,6 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:room_id])
-    @menu_items = MenuItem.all
     @client = Client.new
     @client.bookings.build
 

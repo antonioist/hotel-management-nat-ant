@@ -1,4 +1,5 @@
 class BookingItem < ApplicationRecord
-  belongs_to :menu_item
-  belongs_to :booking
+  has_and_belongs_to_many :menu_items
+  has_and_belongs_to_many :booking
 end
+

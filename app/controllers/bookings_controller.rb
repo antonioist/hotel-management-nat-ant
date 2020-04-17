@@ -5,8 +5,8 @@ class BookingsController < ApplicationController
     @hotel = Hotel.where(hotel_id: params[:id])
     @room = Room.where(hotel_id: params[:id])
     @client = Client.where(hotel_id: params[:id])
-    @bookings = Booking.all
     @booking_amenity = BookingAmenity.new
+    @booking_item = BookingItem.new
   end
 
 end
