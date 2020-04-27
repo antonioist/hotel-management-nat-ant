@@ -19,5 +19,4 @@ class BookingsController < ApplicationController
     current_user.unfavorite(booking)
     redirect_to booking_history_path
   end
-
 end
