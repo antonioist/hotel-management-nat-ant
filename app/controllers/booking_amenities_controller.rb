@@ -3,6 +3,7 @@ class BookingAmenitiesController < ApplicationController
   def create
     @booking_amenity = BookingAmenity.new(booking_amenity_params)
     @booking = Booking.where( hotel_id: params[:id])
+
     if @booking_amenity.save
       redirect_to hotels_path(@hotel)
     else

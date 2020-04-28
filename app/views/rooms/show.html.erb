@@ -41,7 +41,9 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6">
           <%= b.association :booking_amenities, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false %>
-
+          <%#= b.simple_fields_for(:booking_amenities) do |booking_amenity| %>
+          <%#= booking_amenity.input :amenity, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+          <%# end %>
           </div>
           <div class="col-xs-12 col-sm-6">
           <%= b.association :booking_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
