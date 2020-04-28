@@ -40,12 +40,13 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-6">
-          <%= b.association :amenities, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+          <%= b.association :booking_amenities, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false %>
 
           </div>
           <div class="col-xs-12 col-sm-6">
-          <%= b.association :menu_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
+          <%= b.association :booking_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
           </div>
+          <%#= render 'menu_items/room_show_form' %>
         </div>
 
           <div class="d-flex bd-highlight mb-3 border-top">

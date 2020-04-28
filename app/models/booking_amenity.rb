@@ -1,5 +1,6 @@
 class BookingAmenity < ApplicationRecord
-  has_and_belongs_to_many :amenities
-  has_and_belongs_to_many :booking
+  belongs_to :amenity
+  belongs_to :booking
+  accepts_nested_attributes_for :amenity
 end
 
