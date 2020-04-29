@@ -41,8 +41,10 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6">
           <%#= b.association :booking_amenities, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false %>
-          <%= b.simple_fields_for(:booking_amenities) do |a| %>
+          <%= b.simple_fields_for(:booking_amenities) do |ba| %>
+          <%= ba.simple_fields_for(:amenity) do |a| %>
           <%= a.input :amenity, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+          <%#= a.input :booking_id, as: :hidden, input_html: { value: params[:booking_id] } %>
           </div>
           <div class="col-xs-12 col-sm-6">
           <%#= b.association :booking_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
@@ -57,6 +59,7 @@
           <p class="ml-auto p-3 mb-0 bd-highlight mt-3">¥ 5000</p>
           </div>
           <%= b.submit 'Save', class: 'button-booking' %>
+          <% end %>
             <%# end %>
           <% end %>
       <% end %>

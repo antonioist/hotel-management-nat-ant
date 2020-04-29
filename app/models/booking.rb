@@ -3,6 +3,8 @@ class Booking < ApplicationRecord
   belongs_to :worker
   belongs_to :client
   belongs_to :user
+  has_many :amenities, through: :booking_amenities
+  has_many :menu_items, through: :booking_items
   # has_many :booking_amenities, inverse_of: :amenity
   has_many :booking_amenities, inverse_of: :booking
   has_many :booking_items, inverse_of: :menu_item
