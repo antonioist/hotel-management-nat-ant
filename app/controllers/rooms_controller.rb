@@ -13,8 +13,8 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:room_id])
     @menu_items = MenuItem.all
     @client = Client.new
-    @client.bookings.build
-
+    @client.bookings.build.booking_amenities.build
+    # @client.bookings.build.booking_items.build
   end
 
   def new

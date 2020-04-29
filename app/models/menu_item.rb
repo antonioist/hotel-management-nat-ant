@@ -1,5 +1,5 @@
 class MenuItem < ApplicationRecord
-  has_many :booking_items
+  has_many :booking_items, inverse_of: :menu_item
   has_many :bookings, through: :booking_items
   validates :name, :category, presence: true
   monetize :price_cents, numericality: {only_integer: true}
