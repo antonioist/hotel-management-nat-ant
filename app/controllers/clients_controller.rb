@@ -26,12 +26,8 @@ raise
   def client_params
     params.require(:client).permit(:first_name, :last_name, :email, :social_number, :user_id,
       bookings_attributes: [:id, :category, :worker_id, :room_id, :user_id,
-      booking_amenity_attributes: [
-      { amenity_id: "submitter", amenity_attributes: [ :drink] },
-       ],
-      booking_item_attributes: [
-      { menu_item_id: "recipient", menuu_item_attributes: [ :menu_item] },
-       ]
+      booking_amenity_attributes: [ :id, amenity_attributes: [ :drink]],
+      booking_item_attributes: [ :id, menuu_item_attributes: [ :menu_item]]
       ]
     )
   end

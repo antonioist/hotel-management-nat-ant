@@ -44,13 +44,12 @@
           <%= b.simple_fields_for(:booking_amenities) do |ba| %>
           <%= ba.simple_fields_for(:amenity) do |a| %>
           <%= a.input :drink, as: :check_boxes, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
-          <%#= a.input :booking_id, as: :hidden, input_html: { value: params[:booking_id] } %>
           </div>
           <div class="col-xs-12 col-sm-6">
           <%#= b.association :booking_items, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false %>
           <%= b.simple_fields_for(:booking_item) do |bi| %>
           <%= ba.simple_fields_for(:menu_item) do |i| %>
-          <%= i.input :menu_item_id, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false  %>
+          <%= i.input :name, as: :check_boxes, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false  %>
           </div>
           <%#= render 'menu_items/room_show_form' %>
         </div>
