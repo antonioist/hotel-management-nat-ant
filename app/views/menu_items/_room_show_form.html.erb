@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 form-item-menu">
+    <label class="control-label check_boxes optional">Food Menu</label>
+    <div class="form-group-menu">
+    <input type="hidden" name="client[bookings_attributes][0][menu_item_ids][]" value="">
+      <div class="category-choices">
+        <% @menu_items.each do |menu_item| %>
+          <% if menu_item.category == 'FOOD' %>
+            <input type="checkbox" class="hidden" value="<%= menu_item.id %>" name="[menu_item_ids][]" id="menu_item_ids_<%= menu_item.id %>">
+            <label for="menu_item_ids_<%= menu_item.id %>">
+            <%= menu_item.name %> | <%=  humanized_money_with_symbol(menu_item.price ) %>
+            </label>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-6 form-item-menu">
+    <label class="control-label check_boxes optional">Drink Menu</label>
+    <div class="form-group-menu">
+    <input type="hidden" name="client[bookings_attributes][0][menu_item_ids][]" value="">
+      <div class="category-choices ">
+        <% @menu_items.each do |menu_item| %>
+          <% if menu_item.category == 'DRINK' %>
+            <input type="checkbox" class="hidden" value="<%= menu_item.id %>" name="[menu_item_ids][]" id="menu_item_ids_<%= menu_item.id %>">
+            <label for="menu_item_ids_<%= menu_item.id %>">
+            <%= menu_item.name %> | <%=  humanized_money_with_symbol(menu_item.price) %>
+            </label>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
