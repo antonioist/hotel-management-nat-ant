@@ -5,11 +5,11 @@
       <table>
         <tr>
           <th>First name</th>
-          <td> <%= @booking.client.first_name%> </td>
+          <td> <%= @booking.client.first_name.capitalize %> </td>
         </tr>
         <tr>
           <th>Last name</th>
-          <td> <%= @booking.client.last_name%> </td>
+          <td> <%= @booking.client.last_name.capitalize %> </td>
         </tr>
         <tr>
           <th>E-mail</th>
@@ -35,8 +35,32 @@
           <th>Availability</th>
           <td> <%= @booking.status %> </td>
         </tr>
+        <tr>
+          <th>Amenity</th>
+          <td>  </td>
+        </tr>
+        <tr>
+          <th>Menu Item</th>
+          <td> </td>
+        </tr>
       </table>
       <p class="d-flex justify-content-end">Booking No.<%= @booking.id %></p>
+    </div>
+    <div class="col-xs-12 col-sm-6 mt-3">
+    <%= simple_form_for [@booking, @booking_amenity], url: booking_amenities_path do |a| %>
+    <%= a.input :amenity_id, collection: Amenity.all.order('amenities.drink ASC'), include_blank: false  %>
+    <%= a.input :booking_id, as: :hidden, input_html: { value: @booking.id } %>
+    <%= a.submit 'Save', class: 'button-booking' %>
+    <% end %>
+
+    </div>
+    <div class="col-xs-12 col-sm-6 mt-3">
+    <%= simple_form_for [@booking, @booking_item], url: booking_items_path do |i| %>
+    <%= i.input :menu_item_id, collection: MenuItem.all.order('menu_items.name ASC'), include_blank: false  %>
+    <%= i.input :booking_id, as: :hidden, input_html: { value: @booking.id } %>
+    <%= i.submit 'Save', class: 'button-booking', name: 'submit_btn' %>
+    <% end %>
+
     </div>
   </div>
 </div>

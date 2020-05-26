@@ -10,10 +10,15 @@ class RoomsController < ApplicationController
   end
 
   def show
+
     @client = Client.new
     @client.bookings.build
     @amenities = Amenity.all
     @menu_items = MenuItem.all
+    @room = Room.find(params[:room_id])
+    @client.bookings.build.booking_amenities.build(amenity_id: 'submitter').build_amenity
+    @client.bookings.build.booking_items.build(menu_item_id: 'recipient').build_menu_item
+    # @client.bookings.build.booking_items.build
   end
 
   def new
