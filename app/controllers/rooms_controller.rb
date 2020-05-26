@@ -10,9 +10,12 @@ class RoomsController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:room_id])
-    @menu_items = MenuItem.all
+
     @client = Client.new
+    @client.bookings.build
+    @amenities = Amenity.all
+    @menu_items = MenuItem.all
+    @room = Room.find(params[:room_id])
     @client.bookings.build.booking_amenities.build(amenity_id: 'submitter').build_amenity
     @client.bookings.build.booking_items.build(menu_item_id: 'recipient').build_menu_item
     # @client.bookings.build.booking_items.build
@@ -65,8 +68,8 @@ class RoomsController < ApplicationController
 
   def client_params
     params.require(:client).permit(:first_name, :last_name, :email, :social_number,
-      :booking_attributes => [:category, :worker_id]
-    )
+                                   :booking_attributes => [:category, :worker_id]
+                                   )
   end
 
 

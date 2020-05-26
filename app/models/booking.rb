@@ -10,6 +10,7 @@ class Booking < ApplicationRecord
   accepts_nested_attributes_for :booking_amenities
   accepts_nested_attributes_for :booking_items
   validates :category, :worker_id, presence: true
-   CATEGORIES = ["3 hours", "night", "plus one hour"]
+  CATEGORIES = ["3 hours", "night", "plus one hour"]
   validates :category, inclusion: {in: CATEGORIES}
+  acts_as_favoritable
 end

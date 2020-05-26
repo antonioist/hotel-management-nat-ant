@@ -1,6 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(255, 255, 255, 0.7);
+    .navbar-icon {
+      color: $test2;
+    }
+}
+.navbar-brand {
+  margin: 0;
 }
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;

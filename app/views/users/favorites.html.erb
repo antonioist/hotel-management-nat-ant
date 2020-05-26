@@ -1,0 +1,43 @@
+<% @favorites.each do |favorite| %>
+  <div class="card-product">
+    <%= cl_image_tag("photo-1486591038957-19e7c73bdc41_sagxbw")%>
+    <div class="card-product-titles">
+      <p>Hotel:</p>
+      <p>Category:</p>
+      <p>Room:</p>
+      <p>Price:</p>
+    </div>
+    <div class="card-product-infos">
+      <p><%= favorite.favoritable.room.hotel.name %></p>
+      <p><%= favorite.favoritable.room.room_category.category %></p>
+      <p><%= favorite.favoritable.room.number %></p>
+      <p><%= favorite.favoritable.room.room_category.price %></p>
+    </div>
+    <div class="card-product-buttons">
+      <%= link_to "#", class: "card-product-history-button", data: {toggle: "modal", target: "#favoriteInfo"} do  %>
+        <i class="fas fa-info-circle"></i>
+      <% end %>
+      <div class="modal fade" id="favoriteInfo" tabindex="-1" role="dialog" aria-labelledby="favoriteInfoLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="favoriteInfoLabel">Information</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              amenities, menu items information -> next summer <-
+            </div>
+                <div class="modal-footer">
+                  <button type="button" class="button" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <%= link_to room_path(favorite.favoritable.room), class: "card-product-history-button" do  %>
+            <i class="fas fa-arrow-circle-right"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>

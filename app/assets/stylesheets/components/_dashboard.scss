@@ -1,0 +1,27 @@
+.dashboard-user {
+  display: flex;
+  margin: 16px 28px;
+  .dashboard-user-links-names {
+    display: flex;
+    flex-direction: column;
+      span {
+      font-size: 24px;
+      margin-left: 16px;
+      margin-bottom: 32px;
+    }
+  }
+    .dashboard-user-links{
+      display: flex;
+      flex-direction: column;
+        .dashboard-user-buttons {
+        display: flex;
+        margin-bottom: 32px;
+
+          .dashboard-button {
+            color: $test2;
+            font-size: 24px;
+          }
+        }
+    }
+
+}

@@ -5,6 +5,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def booking_history
+    @bookings = current_user.bookings.sort_by(&:created_at).reverse
+  end
+
+  def current_booking
+    @bookings = current_user.bookings
+  end
+
+  def favorites
+    @favorites = current_user.all_favorites
+  end
+
   def tabs
     if current_user.superadmin_role
       @hotel = current_user.hotel || Hotel.new

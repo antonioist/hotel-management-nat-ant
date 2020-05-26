@@ -1,0 +1,23 @@
+<div class="card-product">
+  <%= cl_image_tag("photo-1486591038957-19e7c73bdc41_sagxbw")%>
+  <div class="card-product-titles">
+    <p>Hotel:</p>
+    <p>Category:</p>
+    <p>Room:</p>
+    <p>Price:</p>
+  </div>
+  <div class="card-product-infos">
+    <p><%= @bookings.last.room.hotel.name %></p>
+    <p><%= @bookings.last.room.room_category.category %></p>
+    <p><%= @bookings.last.room.number %></p>
+    <p><%= @bookings.last.room.room_category.price %></p>
+  </div>
+  <div class="card-product-buttons">
+    <%= link_to root_path, class: "card-product-history-button" do  %>
+      <i class="fas fa-info-circle"></i>
+    <% end %>
+    <%= link_to root_path, class: "card-product-history-button" do  %>
+      <i class="fas fa-arrow-circle-right"></i>
+    <% end %>
+  </div>
+</div>
